@@ -14,7 +14,20 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <form (ngSubmit)="guardar()">
+      <ion-item>
+        <ion-input type="text" name="nombre" [(ngModel)]="nombre" label="Nombre:" labelPlacement="floating">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="paterno" [(ngModel)]="paterno" label="Apellido Paterno:" labelPlacement="floating">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="materno" [(ngModel)]="materno" label="Apellido Materno:" labelPlacement="floating">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="date" name="fecha_nacimiento" [(ngModel)]="fecha_nacimiento" label="Fecha de nacimiento:" labelPlacement="floating">  </ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="full">Guardar</ion-button>
+    </form>
   </div>
 </ion-content>

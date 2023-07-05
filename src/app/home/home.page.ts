@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,35 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  nombre: string = "";
+  paterno: string = "";
+  materno: string = "";
+  fecha_nacimiento: string = "";
 
+  respuesta: string = "";
+  constructor(private http: HttpClient) {}
+
+  guardar(){
+    const url="";
+    const headers= new HttpHeaders({
+      'Content-Type' : 'application/json'
+    });
+
+    const body = {
+      nombre: this.nombre,
+      paterno: this.paterno,
+      materno: this.materno,
+      fecha_nacimiento: this.fecha_nacimiento
+    };
+
+    this.http.post(url,body,{headers}).subscribe(
+      response => {
+        this.respuesta = 'Respuesta API: ' + response;
+      },
+      error => {
+        this.respuesta = 'Error API' + error;
+      }
+    );
+
+  }
 }
